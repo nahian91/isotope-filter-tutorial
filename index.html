@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Gallery</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="portfolio-menu">
+            <ul>
+                <li data-filter="*">all</li>
+                <li data-filter=".web">web</li>
+                <li data-filter=".software">software</li>
+                <li data-filter=".graphics">graphics</li>
+                <li data-filter=".seo">seo</li>
+            </ul>
+        </div>
+        <div class="portfolio-items">
+            <div class="single-portfolio web">
+                <img src="assets/img/portfolio1.jpg" alt="">
+                <div class="portfolio-overlay">
+                    <h4>project title</h4>
+                    <p>project description</p>
+                </div>
+            </div>
+            <div class="single-portfolio seo">
+                <img src="assets/img/portfolio2.jpg" alt="">
+                <div class="portfolio-overlay">
+                    <h4>project title</h4>
+                    <p>project description</p>
+                </div>
+            </div>
+            <div class="single-portfolio graphics software">
+                <img src="assets/img/portfolio3.jpg" alt="">
+                <div class="portfolio-overlay">
+                    <h4>project title</h4>
+                    <p>project description</p>
+                </div>
+            </div>
+            <div class="single-portfolio web graphics software">
+                <img src="assets/img/portfolio4.jpg" alt="">
+                <div class="portfolio-overlay">
+                    <h4>project title</h4>
+                    <p>project description</p>
+                </div>
+            </div>
+            <div class="single-portfolio seo graphics">
+                <img src="assets/img/portfolio5.jpg" alt="">
+                <div class="portfolio-overlay">
+                    <h4>project title</h4>
+                    <p>project description</p>
+                </div>
+            </div>
+            <div class="single-portfolio web seo">
+                <img src="assets/img/portfolio6.jpg" alt="">
+                <div class="portfolio-overlay">
+                    <h4>project title</h4>
+                    <p>project description</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/isotope.min.js"></script>
+    <script>
+        // init Isotope
+        var $grid = $('.portfolio-items').isotope({
+        // options
+        });
+        // filter items on button click
+        $('.portfolio-menu ul').on( 'click', 'li', function() {
+        var filterValue = $(this).attr('data-filter');
+        $grid.isotope({ filter: filterValue });
+        });
+
+        $('.portfolio-menu ul').on( 'click', 'li', function() {
+            $(this).siblings(".active").removeClass('active');
+            $(this).addClass("active");
+        })
+    </script>
+</body>
+</html>
